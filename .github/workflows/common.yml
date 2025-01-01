@@ -65,8 +65,6 @@ jobs:
 
   deploy:
 
-
-
     if: github.event_name == 'push' && github.repository == 'owner/repo'
     runs-on: ubuntu-latest
     steps:
