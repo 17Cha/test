@@ -24,6 +24,11 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - name: 전체 XML 파일 확인
+        run: |
+          echo "Searching for all XML files..."
+          find . -type f -name "*.xml" || echo "No XML files found"    
+
       - name: Jacoco 파일 경로 확인
         run: |
           echo "Searching for jacocoTestReport.xml..."
