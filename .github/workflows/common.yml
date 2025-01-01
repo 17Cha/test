@@ -54,6 +54,7 @@ jobs:
           min-coverage-changed-files: 80
 
   deploy:
+
     if: github.event_name == 'push' && github.repository == 'owner/repo'
     runs-on: ubuntu-latest
     steps:
