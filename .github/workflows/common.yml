@@ -10,7 +10,7 @@ on:
 
 jobs:
   pr-check:
-    if: github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request_target' || github.event_name == 'pull_request'
     runs-on: ubuntu-24.04
     steps:
       - name: Github Repository 파일 불러오기
