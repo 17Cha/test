@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
+  pull_request:
     branches:
       - main
 
 jobs:
   pr-check:
-    if: github.event_name == 'pull_request_target'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-24.04
     steps:
       - name: Github Repository 파일 불러오기
@@ -32,7 +32,6 @@ jobs:
         if: always()
         with:
           files: '**/build/reports/jacoco/test/jacocoTestReport.xml'
-          github_token: ${{ secrets.PAT_TOKEN }}
 
   deploy:
     if: github.event_name == 'push' && github.repository == 'owner/repo'
