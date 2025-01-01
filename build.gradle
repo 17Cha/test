@@ -32,17 +32,15 @@ tasks.named('test') {
 }
 
 jacoco {
-	toolVersion = "0.8.8" // Jacoco 버전 설정
-}
-test {
-	finalizedBy jacocoTestReport
+	toolVersion = "0.8.10" // Jacoco 최신 안정 버전
 }
 
 jacocoTestReport {
 	dependsOn(tasks.named('test')) // 테스트 실행 후 리포트 생성
+	mustRunAfter(tasks.named('test')) // 항상 테스트 후 실행
 	reports {
-		html.required = true // HTML 리포트 활성화
-		xml.required = true  // XML 리포트 활성화
-		csv.required = true // CSV 리포트 비활성화
+		html.required = true  // HTML 리포트 활성화
+		xml.required = true   // XML 리포트 활성화
+		csv.required = false  // CSV 리포트 비활성화
 	}
 }
