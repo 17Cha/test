@@ -22,11 +22,19 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Gradle 빌드 및 테스트 실행
-        run: ./gradlew clean build
+      - name: Gradle 빌드 Jacoco Report 생성
+        run: |
+          ./gradlew clean test jacocoTestReport --rerun-tasks
 
-      - name: JaCoCo 코드 커버리지 리포트 생성
-        run: ./gradlew jacocoTestReport
+      - name: 전체 XML 파일 확인
+        run: |
+          echo "Searching for all XML files..."
+          find . -type f -name "*.xml" || echo "No XML files found"
+
+      - name: Jacoco 파일 경로 확인
+        run: |
+          echo "Searching for jacocoTestReport.xml..."
+          find build/reports/jacoco/test -name jacocoTestReport.xml || echo "jacocoTestReport.xml not found"
 
       - name: 테스트 결과를 PR에 코멘트로 등록
         uses: EnricoMi/publish-unit-test-result-action@v2
@@ -34,11 +42,12 @@ jobs:
         with:
           files: '**/build/test-results/test/*.xml'
 
+
       - name: JaCoCo 코드 커버리지 리포트를 PR에 코멘트로 등록
         uses: madrapps/jacoco-report@v1.2
         with:
           paths: '**/build/reports/jacoco/test/jacocoTestReport.xml'
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           min-coverage-overall: 80
           min-coverage-changed-files: 80
 
