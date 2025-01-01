@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  pull_request_target:
     branches:
       - main
 
 jobs:
   pr-check:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request_target'
     runs-on: ubuntu-latest
     steps:
       - name: 리포지토리 체크아웃
@@ -62,6 +62,7 @@ jobs:
           min-coverage-overall: 80
           min-coverage-changed-files: 80
           debug-mode: true
+
 
   deploy:
 
