@@ -22,12 +22,17 @@ jobs:
           distribution: temurin
           java-version: 21
 
+      - name: Jacoco 파일 경로 확인
+        run: |
+          echo "Searching for jacocoTestReport.xml..."
+          find build/reports/jacoco/test -name jacocoTestReport.xml || echo "jacocoTestReport.xml not found"
+
       - name: 테스트 결과를 PR에 코멘트로 등록합니다
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
           files: '**/build/reports/jacoco/test/jacocoTestReport.xml'
-          github_token: ${{ secrets.PAT_TOKEN }} # PAT 토큰 사용
+          github_token: ${{ secrets.PAT_TOKEN }}
 
   deploy:
     if: github.event_name == 'push' && github.repository == 'owner/repo'
