@@ -65,6 +65,8 @@ jobs:
           source: common.jar
           target: /home/ubuntu/common-be/temp
 
+
+
       - name: SSH로 EC2에 접속하기
         uses: appleboy/ssh-action@v1.0.3
         with:
