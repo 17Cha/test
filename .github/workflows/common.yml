@@ -10,7 +10,7 @@ on:
 
 jobs:
   pr-check:
-    if: github.event_name == 'pull_request' || github.repository == 'owner/repo'
+    if: github.event_name == 'pull_request'
     runs-on: ubuntu-24.04
     steps:
       - name: Github Repository 파일 불러오기
@@ -29,7 +29,7 @@ jobs:
           files: '**/build/reports/jacoco/test/jacocoTestReport.xml'
 
   deploy:
-    if: github.event_name == 'push' || github.repository == 'owner/repo'
+    if: github.event_name == 'push' && github.repository == 'owner/repo'
     runs-on: ubuntu-24.04
     steps:
       - name: Github Repository 파일 불러오기
