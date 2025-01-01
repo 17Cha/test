@@ -50,6 +50,7 @@ jobs:
             exit 1
           fi
 
+
 #      - name: JaCoCo 코드 커버리지 리포트를 PR에 코멘트로 등록
 #        uses: madrapps/jacoco-report@v1.2
 #        with:
