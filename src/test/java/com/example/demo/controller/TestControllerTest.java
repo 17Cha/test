@@ -19,6 +19,6 @@ class TestControllerTest {
     void testHelloWorldEndpoint() throws Exception {
         mockMvc.perform(get("/")) // 기본 경로로 GET 요청
             .andExpect(status().isOk()) // HTTP 상태가 200인지 확인
-            .andExpect(content().string("Hello, World")); // 반환된 내용 확인
+            .andExpect(content().string("Hello, Common")); // 반환된 내용 확인
     }
 }
