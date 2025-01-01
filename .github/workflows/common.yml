@@ -26,8 +26,8 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
-          files: | 
-            '**/build/reports/jacoco/test/jacocoTestReport.xml'
+          files: '**/build/reports/jacoco/test/jacocoTestReport.xml'
+          github_token: ${{ secrets.PAT_TOKEN }} # PAT 토큰 사용
 
   deploy:
     if: github.event_name == 'push' && github.repository == 'owner/repo'
@@ -59,8 +59,6 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           source: common.jar
           target: /home/ubuntu/common-be/temp
-
-
 
       - name: SSH로 EC2에 접속하기
         uses: appleboy/ssh-action@v1.0.3
