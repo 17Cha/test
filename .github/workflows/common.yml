@@ -25,7 +25,9 @@ jobs:
           java-version: 21
 
 
-
+      - name: Gradle Build and Jacoco Report 생성
+        run: |
+          ./gradlew clean test jacocoTestReport --rerun-tasks
       - name: 전체 XML 파일 확인
         run: |
           echo "Searching for all XML files..."
