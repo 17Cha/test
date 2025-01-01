@@ -32,7 +32,10 @@ tasks.named('test') {
 }
 
 jacoco {
-	toolVersion = "0.8.10" // Jacoco 버전 설정
+	toolVersion = "0.8.8" // Jacoco 버전 설정
+}
+test {
+	finalizedBy jacocoTestReport
 }
 
 jacocoTestReport {
