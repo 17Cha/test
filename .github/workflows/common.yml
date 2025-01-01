@@ -60,6 +60,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 80
           min-coverage-changed-files: 80
+          debug-mode: true
 
   deploy:
     if: github.event_name == 'push' && github.repository == 'owner/repo'
