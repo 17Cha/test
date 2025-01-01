@@ -8,6 +8,7 @@ on:
     branches:
       - main
 
+
 jobs:
   pr-check:
     if: github.event_name == 'pull_request_target'
