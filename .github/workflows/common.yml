@@ -24,6 +24,8 @@ jobs:
           distribution: temurin
           java-version: 21
 
+
+
       - name: 전체 XML 파일 확인
         run: |
           echo "Searching for all XML files..."
