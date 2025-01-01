@@ -1,2 +1,2 @@
-# test
-cicd 연습용 repo입니다.
+# github-action-ci-cd-
+ci/cd 연습용입니다!
