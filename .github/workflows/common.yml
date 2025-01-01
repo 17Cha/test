@@ -48,16 +48,16 @@ jobs:
             exit 1
           fi
 
-      - name: 테스트 결과를 PR에 코멘트로 등록
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: '**/build/test-results/test/*.xml'
+#      - name: 테스트 결과를 PR에 코멘트로 등록
+#        uses: EnricoMi/publish-unit-test-result-action@v2
+#        if: always()
+#        with:
+#          files: 'build/test-results/test/*.xml'
 
       - name: JaCoCo 코드 커버리지 리포트를 PR에 코멘트로 등록
         uses: madrapps/jacoco-report@v1.2
         with:
-          paths: '**/build/reports/jacoco/test/jacocoTestReport.xml'
+          paths: 'build/reports/jacoco/test/jacocoTestReport.xml'
           token: ${{ secrets.GITHUB_TOKEN }}
           min-coverage-overall: 80
           min-coverage-changed-files: 80
