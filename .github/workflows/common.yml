@@ -99,9 +99,9 @@ jobs:
       - name: SCP로 운영 서버에 빌드 파일 전송하기
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.PRODUCTION_EC2_HOST }}
-          username: ${{ secrets.PRODUCTION_EC2_USERNAME }}
-          key: ${{ secrets.PRODUCTION_EC2_PRIVATE_KEY }}
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_PRIVATE_KEY }}
           source: backend.jar
           target: /home/ubuntu/common-be/temp
 
