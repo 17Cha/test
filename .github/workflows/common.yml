@@ -118,3 +118,5 @@ jobs:
             mv /home/ubuntu/common-be/temp/backend.jar /home/ubuntu/common-be/current/backend.jar
             sudo systemctl restart backend.service
 
+
+
