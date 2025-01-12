@@ -31,7 +31,7 @@ jobs:
           files: '**/build/reports/jacoco/test/jacocoTestReport.xml'
 
   staging-deploy:
-    if: github.event_name == 'push' && github.repository == 'your-main-repo-owner/your-main-repo-name' && github.ref == 'refs/heads/develop'
+    if: github.event_name == 'push' && github.repository == '17Cha/test' && github.ref == 'refs/heads/develop'
     runs-on: ubuntu-24.04
     steps:
       - name: Github Repository 파일 불러오기
@@ -75,7 +75,7 @@ jobs:
             sudo systemctl restart backend.service
 
   production-deploy:
-    if: github.event_name == 'push' && github.repository == 'your-main-repo-owner/your-main-repo-name' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.repository == '17Cha/test' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     steps:
       - name: Github Repository 파일 불러오기
@@ -117,8 +117,3 @@ jobs:
             mkdir -p /home/ubuntu/common-be/current
             mv /home/ubuntu/common-be/temp/backend.jar /home/ubuntu/common-be/current/backend.jar
             sudo systemctl restart backend.service
-
-
-
-
-
